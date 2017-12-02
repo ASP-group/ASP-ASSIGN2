@@ -1,4 +1,6 @@
 ﻿@model Dictionary<String, List<ZenithWebSite.Models.Event>>
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
 @{
     ViewBag.Title = "Zenith Society";
 }
@@ -17,7 +19,7 @@
             </tr>
             foreach (var details in item.Value)
             {
-                @*if (HttpContext.Current.User.Identity.IsAuthenticated)
+                if (User.Identity.IsAuthenticated)
                 {
                     <tr>
                         <td class="alert-dismissable text-center">
@@ -27,7 +29,9 @@
                             @details.Activity.ActivityDescription
                         </td>
                     </tr>
-                }*@
+                }
+                else
+                {
 
                     if (details.IsActive)
                     {
@@ -40,7 +44,8 @@
                             </td>
                         </tr>
                     }
-                
+                }
+
             }
         }
     </table>

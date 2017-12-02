@@ -32,46 +32,6 @@ namespace ZenithWebSite.Models
             }
         }
 
-        public static async void SeedUserRole(ApplicationDbContext context, RoleManager<IdentityRole> roleManager, UserManager<ApplicationUser> userManager)
-        {
-            var isAdminRoleExist = await roleManager.RoleExistsAsync("Admin");
-            var isMemberRoleExist = await roleManager.RoleExistsAsync("Member");
-            if (!isAdminRoleExist)
-            {
-                await roleManager.CreateAsync(new IdentityRole("Admin"));
-            }
-            if (!isMemberRoleExist)
-            {
-                await roleManager.CreateAsync(new IdentityRole("Member"));
-            }
-            if (await userManager.FindByNameAsync("a") == null)
-            {
-                var user = new ApplicationUser
-                {
-                    Email = "a@a.a",
-                    UserName = "a"
-                };
-                var result = await userManager.CreateAsync(user, "P@$$w0rd");
-                if (result.Succeeded)
-                {
-                    await userManager.AddToRoleAsync(user, "Admin");
-                }
-            }
-            if (await userManager.FindByNameAsync("m") == null)
-            {
-                var user = new ApplicationUser
-                {
-                    Email = "m@m.m",
-                    UserName = "m"
-                };
-                var result = await userManager.CreateAsync(user, "P@$$w0rd");
-                if (result.Succeeded)
-                {
-                    await userManager.AddToRoleAsync(user, "Member");
-                }
-            }
-        }
-
         public static Activity[] GetActivities()
         {
             var activities = new List<Activity>
@@ -313,6 +273,46 @@ namespace ZenithWebSite.Models
             };
 
             return events.ToArray();
+        }
+
+        public static async void SeedUserRole(ApplicationDbContext context, RoleManager<IdentityRole> roleManager, UserManager<ApplicationUser> userManager)
+        {
+            var isAdminRoleExist = await roleManager.RoleExistsAsync("Admin");
+            var isMemberRoleExist = await roleManager.RoleExistsAsync("Member");
+            if (!isAdminRoleExist)
+            {
+                await roleManager.CreateAsync(new IdentityRole("Admin"));
+            }
+            if (!isMemberRoleExist)
+            {
+                await roleManager.CreateAsync(new IdentityRole("Member"));
+            }
+            if (await userManager.FindByNameAsync("a") == null)
+            {
+                var user = new ApplicationUser
+                {
+                    Email = "a@a.a",
+                    UserName = "a"
+                };
+                var result = await userManager.CreateAsync(user, "P@$$w0rd");
+                if (result.Succeeded)
+                {
+                    await userManager.AddToRoleAsync(user, "Admin");
+                }
+            }
+            if (await userManager.FindByNameAsync("m") == null)
+            {
+                var user = new ApplicationUser
+                {
+                    Email = "m@m.m",
+                    UserName = "m"
+                };
+                var result = await userManager.CreateAsync(user, "P@$$w0rd");
+                if (result.Succeeded)
+                {
+                    await userManager.AddToRoleAsync(user, "Member");
+                }
+            }
         }
 
     }
