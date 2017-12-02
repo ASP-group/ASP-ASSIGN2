@@ -4,9 +4,9 @@ D:\csharpworkspace\ZenithSociety2\ZenithWebSite\bin\Debug\netcoreapp2.0\ZenithWe
 D:\csharpworkspace\ZenithSociety2\ZenithWebSite\bin\Debug\netcoreapp2.0\ZenithWebSite.dll
 D:\csharpworkspace\ZenithSociety2\ZenithWebSite\bin\Debug\netcoreapp2.0\ZenithWebSite.pdb
 D:\csharpworkspace\ZenithSociety2\ZenithWebSite\obj\Debug\netcoreapp2.0\ZenithWebSite.csproj.CoreCompileInputs.cache
-D:\csharpworkspace\ZenithSociety2\ZenithWebSite\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
 D:\csharpworkspace\ZenithSociety2\ZenithWebSite\obj\Debug\netcoreapp2.0\ZenithWebSite.AssemblyInfoInputs.cache
 D:\csharpworkspace\ZenithSociety2\ZenithWebSite\obj\Debug\netcoreapp2.0\ZenithWebSite.AssemblyInfo.cs
 D:\csharpworkspace\ZenithSociety2\ZenithWebSite\obj\Debug\netcoreapp2.0\ZenithWebSite.dll
 D:\csharpworkspace\ZenithSociety2\ZenithWebSite\obj\Debug\netcoreapp2.0\ZenithWebSite.pdb
 D:\csharpworkspace\ZenithSociety2\ZenithWebSite\obj\Debug\netcoreapp2.0\ZenithWebSite.csprojResolveAssemblyReference.cache
+D:\csharpworkspace\ZenithSociety2\ZenithWebSite\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
