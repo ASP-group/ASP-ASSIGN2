@@ -1,0 +1,13 @@
+<div>
+  <h1>Today's date is {{ date | date:'yyyy-MM-dd' }}</h1>
+  <table>
+    <ng-container>
+      <tr *ngFor="let e of events">
+        <td>{{ e.eventFrom }} - {{ e.eventTo }}</td>
+        <td>{{ e.activityDescription }} </td>
+      </tr>
+    </ng-container>
+  </table>
+  <button (click)="previous()"><</button>
+  <button (click)="next()">></button>
+</div>
