@@ -1,6 +1,6 @@
 export class ZenithEvent {
   eventDate: Date;
-  eventFrom: Date;
-  eventTo: Date;
+  startTime: Date;
+  endTime: Date;
   activityDescription: string;
 }

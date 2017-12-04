@@ -1,0 +1,25 @@
+:host {
+  display: flex;
+}
+
+h3 {
+  text-align: center;
+}
+tbody {
+  text-align: center;
+}
+
+th {
+  background-color: gray;
+}
+
+table {
+  border: 1px black solid;
+}
+
+.change-week {
+  display: flex;
+  justify-content: space-between;
+}
+
+

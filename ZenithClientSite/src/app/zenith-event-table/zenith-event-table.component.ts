@@ -5,11 +5,11 @@ import {EventsService} from "../events.service";
 @Component({
   selector: 'app-zenith-event-table',
   templateUrl: './zenith-event-table.component.html',
-  styleUrls: ['./zenith-event-table.component.css']
+  styleUrls: ['./zenith-event-table.component.scss']
 })
 export class ZenithEventTableComponent implements OnInit {
   events: ZenithEvent[];
-  groupedEvents: ZenithEvent[][];
+  weekOfEvents: ZenithEvent[][];
   id: number = 0;
   date = new Date();
 
@@ -31,12 +31,12 @@ export class ZenithEventTableComponent implements OnInit {
     this.eventService.getEvent(week)
       .then(events => {
         this.events = events;
-        this.groupedEvents = new Array<Array<ZenithEvent>>();
+        this.weekOfEvents = new Array<Array<ZenithEvent>>();
         for (let i = 0; i < 7; i++) {
-          this.groupedEvents[i] = new Array<ZenithEvent>();
+          this.weekOfEvents[i] = new Array<ZenithEvent>();
         }
         this.events.forEach(element => {
-          this.groupedEvents[new Date(element.eventDate).getDay() - 1].push(element)
+          this.weekOfEvents[new Date(element.eventDate).getDay() - 1].push(element)
         });
       });
   }

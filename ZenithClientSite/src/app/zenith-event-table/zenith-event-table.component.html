@@ -1,19 +1,26 @@
 <div>
   <h1>Today's date is {{ date | date:'yyyy-MM-dd' }}</h1>
-  <table>
-    <ng-container *ngFor="let day of groupedEvents; let i=index">
-      <ng-container *ngIf="day.length > 0">
-        <tr><th colspan="2">
-          {{ day[0].eventDate | date:'MMM dd, yyyy':'UTC' }}
-        </th></tr>
-        <tr *ngFor="let e of day">
-          <td>{{ e.eventFrom }} - {{ e.eventTo }}</td>
-          <td>{{ e.activityDescription }} </td>
-        </tr>
+  <div>
+    <h3>List of Events</h3>
+    <table>
+      <ng-container *ngFor="let day of weekOfEvents">
+        <ng-container *ngIf="day.length > 0">
+          <tr>
+            <th colspan="2">
+              {{ day[0].eventDate | date:'MMM dd, yyyy':'UTC' }}
+            </th>
+          </tr>
+          <tr *ngFor="let e of day">
+            <td>{{ e.startTime }} - {{ e.endTime }}</td>
+            <td>{{ e.activityDescription }} </td>
+          </tr>
+        </ng-container>
       </ng-container>
-    </ng-container>
-  </table>
+    </table>
 
-  <button (click)="previous()">Previous</button>
-  <button (click)="next()">Next</button>
+    <div class="change-week">
+      <button (click)="previous()">< Previous</button>
+      <button (click)="next()">Next ></button>
+    </div>
+  </div>
 </div>
