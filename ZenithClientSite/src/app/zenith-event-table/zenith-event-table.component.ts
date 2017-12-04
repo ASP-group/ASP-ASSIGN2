@@ -9,10 +9,11 @@ import {EventsService} from "../events.service";
 })
 export class ZenithEventTableComponent implements OnInit {
   events: ZenithEvent[];
-  id: number = 1;
+  groupedEvents: ZenithEvent[][];
+  id: number = 0;
   date = new Date();
 
-  constructor(public eService: EventsService) { }
+  constructor(public eventService: EventsService) { }
 
   ngOnInit() {
     this.getEvent(this.id);
@@ -26,8 +27,17 @@ export class ZenithEventTableComponent implements OnInit {
     this.getEvent(++this.id);
   }
 
-  getEvent(id: number) {
-    this.eService.getEvent(id)
-      .then(events => this.events = events);
+  getEvent(week: number) {
+    this.eventService.getEvent(week)
+      .then(events => {
+        this.events = events;
+        this.groupedEvents = new Array<Array<ZenithEvent>>();
+        for (let i = 0; i < 7; i++) {
+          this.groupedEvents[i] = new Array<ZenithEvent>();
+        }
+        this.events.forEach(element => {
+          this.groupedEvents[new Date(element.eventDate).getDay() - 1].push(element)
+        });
+      });
   }
 }

@@ -1,13 +1,19 @@
 <div>
   <h1>Today's date is {{ date | date:'yyyy-MM-dd' }}</h1>
   <table>
-    <ng-container>
-      <tr *ngFor="let e of events">
-        <td>{{ e.eventFrom }} - {{ e.eventTo }}</td>
-        <td>{{ e.activityDescription }} </td>
-      </tr>
+    <ng-container *ngFor="let day of groupedEvents; let i=index">
+      <ng-container *ngIf="day.length > 0">
+        <tr><th colspan="2">
+          {{ day[0].eventDate | date:'MMM dd, yyyy':'UTC' }}
+        </th></tr>
+        <tr *ngFor="let e of day">
+          <td>{{ e.eventFrom }} - {{ e.eventTo }}</td>
+          <td>{{ e.activityDescription }} </td>
+        </tr>
+      </ng-container>
     </ng-container>
   </table>
-  <button (click)="previous()"><</button>
-  <button (click)="next()">></button>
+
+  <button (click)="previous()">Previous</button>
+  <button (click)="next()">Next</button>
 </div>

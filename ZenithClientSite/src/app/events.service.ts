@@ -6,13 +6,13 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class EventsService {
-  private BASE_URL = "http://zenithsocietycore2.azurewebsites.net/api/events/";
+  private EVENT_URL = "http://zenithsocietycore2.azurewebsites.net/api/events/";
 
   constructor(public _http: Http) { }
 
-  getEvent(id: number) : Promise<ZenithEvent[]> {
+  getEvent(week: number) : Promise<ZenithEvent[]> {
     return this._http
-      .get(this.BASE_URL + id)
+      .get(this.EVENT_URL + 'week/' + week)
       .toPromise()
       .then(response => response.json() as ZenithEvent[]);
   }
